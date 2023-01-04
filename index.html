@@ -14,7 +14,7 @@
             font-family: monospace;
             margin-bottom: 4mm;
             border-bottom: dotted;
-            border-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.15);
         }
 
         .status-code div {
@@ -23,7 +23,7 @@
 
         .status-code div:first-child {
             width: 15%;
-            color: rgb(20, 189, 224);
+            color: rgb(21, 194, 230);
             text-align: left;
         }
 
@@ -32,10 +32,29 @@
             float: right;
         }
 
+        .command {
+            display: block;
+        }
+
+        .command::before {
+            content: '$ ';
+            color: rgb(21, 194, 230);
+        }
+
+        body::before {
+            content: "\2702";
+            position: absolute;
+            bottom: 0;
+            right: -3mm;
+            transform: rotate(-120deg);
+            color: #fff;
+            font-size: 6mm;
+        }
+
     </style>
 
 </head>
-<body style="width: 273mm; height: 200mm" class="p-12 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-700">
+<body style="width: 273mm; height: 200mm; border-color: rgba(255, 255, 255, 0.3)" class="relative p-12 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-700 border-dotted border-2">
 
 <div class="mx-auto w-100 block">
 
@@ -163,6 +182,14 @@
             </div>
 
         </div>
+
+    </div>
+
+    <div class="text-white font-mono px-8 mt-8 text-lg font-bold grid grid-cols-1 gap-x-8 gap-y-2">
+
+        <kbd class="command">docker ps</kbd>
+        <kbd class="command">docker exec -it <em>container</em> bash</kbd>
+        <kbd class="command">docker compose exec -it <em>service</em> bash</kbd>
 
     </div>
 
